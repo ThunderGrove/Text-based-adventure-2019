@@ -32,19 +32,40 @@ public class Spil {
 
         // TODO Her skal alle nye skabninger tilføjes!
         Andras andras = new Andras();
+        Baugh baugh = new Baugh();
+        Tommy tommy = new Tommy();
+        Rick rick = new Rick();
         Katten_Otto katten_otto = new Katten_Otto();
         PeterPlys peterPlys = new PeterPlys();
+        Thor thor = new Thor();
+        Falconhoof f = new Falconhoof();
+        Laila l = new Laila();
+        DragonBorn d = new DragonBorn();
+        Gulddreng g = new Gulddreng();
+        Hund hund = new Hund();
+        Kaffe k = new Kaffe();
+        KelvinTamer kelvinTamer = new KelvinTamer();
+        Merlin m = new Merlin();
+        MrBedreViden mr = new MrBedreViden();
+        Putin p = new Putin();
+        Thor t = new Thor();
+        Toke toke = new Toke();
+        DonaldJTrump donald = new DonaldJTrump();
+        LuckyLuke luckyLuke = new LuckyLuke();
+        FlyingSpaghettiMonster flyingSpaghettiMonster = new FlyingSpaghettiMonster();
+
+
 
         // Her kører spillets loop
         Scanner scanner = new Scanner(System.in);
         String kommando = "";
         while(true) {
-            System.out.println("Hvem vil du snakke med? (alternativt --> slut) ");
-            System.out.println(SkabningsListe.listSkabninger());
+            System.out.println("Hvem vil du snakke med?");
+            System.out.println(SkabningsListe.listSkabninger() + " (Skriv 0 for ikke at snakke med nogen.)");
             kommando = scanner.next();
 
             // Hvis brugeren skriver slut, så stopper spillet
-            if (kommando.equalsIgnoreCase("Slut")) {
+            if (kommando.equalsIgnoreCase("0")) {
                 System.out.println("Farvel, din skønne eventyrer!"); break;
             }
 
@@ -55,9 +76,9 @@ public class Spil {
                 // Henter skabning fra skabningslisten
                 samtalePartner = SkabningsListe.hentSkabning(tal);
                 while (true) {
-                    System.out.println("Du kan snakke om " + samtalePartner.kanSnakkeOmEmner() + " eller skrive intet for at komme videre. Hvad vil du spørge om?");
+                    System.out.println("Du kan snakke om " + samtalePartner.kanSnakkeOmEmner() + " eller --> farvel for at komme videre. Hvad vil du spørge om?");
                     kommando = scanner.next();
-                    if (kommando.equalsIgnoreCase("Intet") ||  kommando.equals("")) {
+                    if (kommando.equalsIgnoreCase("farvel") ||  kommando.equals("")) {
                         System.out.println("I snakker ikke mere denne gang.");
                         break;
                     } else {
@@ -65,7 +86,7 @@ public class Spil {
                         if (svar == null) {
                             System.out.println("Jeg kan ikke sige noget om " + kommando  + "!");
                         } else {
-                            System.out.println(svar);
+                            System.out.println("\n" + svar + "\n");
                         }
                     }
                 }
